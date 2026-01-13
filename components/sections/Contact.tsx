@@ -48,10 +48,16 @@ export function Contact() {
           </div>
 
           <div className="flex gap-6 justify-center">
-            {[Github, Linkedin, Twitter].map((Icon, i) => (
+            {[
+              { Icon: Github, href: "#" },
+              { Icon: Linkedin, href: "https://www.linkedin.com/in/salvisharma003/" },
+              { Icon: Twitter, href: "#" }
+            ].map(({ Icon, href }, i) => (
                <Link 
                  key={i} 
-                 href="#" 
+                 href={href}
+                 target={href !== "#" ? "_blank" : undefined}
+                 rel={href !== "#" ? "noopener noreferrer" : undefined}
                  className="p-3 bg-white/5 border border-white/10 rounded-full hover:bg-white hover:text-black transition-all hover:scale-110"
                >
                  <Icon size={24} />
